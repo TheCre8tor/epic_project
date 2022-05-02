@@ -10,7 +10,15 @@ describe("epic_project", () => {
 
   it("Is initialized!", async () => {
     // Add your test here.
-    const tx = await program.methods.initialize().rpc();
-    console.log("Your transaction signature", tx);
+    // const tx = await program.methods.initialize().rpc();
+    // console.log("Your transaction signature", tx);
+
+    console.log("🚀 Starting test...");
+
+    // We call our method and wait for our local
+    // validator to "mine" the instruction.
+    const tx = await program.methods.startStuffOff().rpc();
+
+    console.log("📝 Your transaction signature", tx);
   });
 });
