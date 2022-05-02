@@ -38,7 +38,19 @@ describe("epic_project", () => {
     );
 
     console.log("👀 GIF Count", account.totalGifs.toString());
-    console.log("Wallet Address: ", provider.wallet.publicKey.toString());
+    // console.log("Wallet Address: ", provider.wallet.publicKey.toString());
+
+    // Call add_gif
+    // rpc -> Remote Procedure Call
+    await program.methods
+      .addGif()
+      .accounts({
+        baseAccount: baseAccount.publicKey,
+      })
+      .rpc();
+
+    account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+    console.log("👀 GIF Count", account.totalGifs.toString());
 
     // We call our method and wait for our local
     // validator to "mine" the instruction.
