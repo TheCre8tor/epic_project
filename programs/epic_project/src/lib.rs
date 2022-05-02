@@ -27,6 +27,15 @@ pub mod epic_project {
 
         Ok(())
     }
+
+    pub fn add_gif(ctx: Context<AddGif>) -> Result<()> {
+        // Get a reference to the account and increment total_gifs.
+        let base_account = &mut ctx.accounts.base_account;
+
+        base_account.total_gifs += 1;
+
+        Ok(())
+    }
 }
 
 /* Here, we'll basically be able to specify 
@@ -62,6 +71,14 @@ pub struct StartStuffOff<'info> {
        that other programs like ours talk to haha — it has an id 
        of 11111111111111111111111111111111. */
     pub system_program: Program<'info, System>,
+}
+
+// Specify what data you want in the AddGif Context.
+// Getting a handle on the flow of things :)?
+#[derive(Accounts)]
+pub struct AddGif<'info> {
+    #[account(mut)]
+    pub base_account: Account<'info, BaseAccount>
 }
 
 #[account]
