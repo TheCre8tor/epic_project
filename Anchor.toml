@@ -1,13 +1,16 @@
 [features]
 seeds = false
-[programs.localnet]
-epic_project = "Fdw4Hsmd11AaKDAsuEHG1FAqTCUGiJ97g7WXVT8hd28h"
+[programs.devnet]
+epic_project = "DbPM2jFTfuAuQnoXWLziSCNd7EqFurifx4rNZcBvbzo9"
+# [programs.localnet]
+# epic_project = "DbPM2jFTfuAuQnoXWLziSCNd7EqFurifx4rNZcBvbzo9"
 
 [registry]
 url = "https://anchor.projectserum.com"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
+# cluster = "localnet"
 wallet = "/home/alexander/.config/solana/id.json"
 
 [scripts]

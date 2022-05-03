@@ -43,14 +43,18 @@ describe("epic_project", () => {
     // Call add_gif
     // rpc -> Remote Procedure Call
     await program.methods
-      .addGif()
+      .addGif("https://media0.giphy.com/media/dUf2a9CIVydkb5oHvA/giphy.webp")
       .accounts({
         baseAccount: baseAccount.publicKey,
+        user: provider.wallet.publicKey,
       })
       .rpc();
 
     account = await program.account.baseAccount.fetch(baseAccount.publicKey);
     console.log("👀 GIF Count", account.totalGifs.toString());
+
+    // Access gif_list on the account!
+    console.log("👀 GIF List", account.gifList);
 
     // We call our method and wait for our local
     // validator to "mine" the instruction.
